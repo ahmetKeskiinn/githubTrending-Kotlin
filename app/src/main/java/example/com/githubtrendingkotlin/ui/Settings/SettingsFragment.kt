@@ -11,7 +11,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import example.com.githubtrendingkotlin.DataBase.Repositories.RepoRepository
 import example.com.githubtrendingkotlin.R
-import example.com.githubtrendingkotlin.ui.Projects.FactoryProject
 
 class SettingsFragment : Fragment() {
     // Lazy Inject ViewModel
@@ -24,7 +23,7 @@ class SettingsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        root = inflater.inflate(R.layout.fragment_notifications, container, false)
+        root = inflater.inflate(R.layout.fragment_settings, container, false)
         initialVM()
         getData()
         return root

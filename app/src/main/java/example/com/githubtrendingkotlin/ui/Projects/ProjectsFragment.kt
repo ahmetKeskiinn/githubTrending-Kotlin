@@ -7,26 +7,33 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import example.com.githubtrendingkotlin.Adapters.DeveloperAdapter
+import example.com.githubtrendingkotlin.Adapters.ProjectAdapter
 import example.com.githubtrendingkotlin.DataBase.Repositories.RepoRepository
 import example.com.githubtrendingkotlin.R
-import example.com.githubtrendingkotlin.ui.Settings.FactorySettings
-import example.com.githubtrendingkotlin.ui.Settings.SettingsViewModel
 
 class ProjectsFragment : Fragment() {
 
     private lateinit var viewModel: ProjectsViewModel
     private lateinit var root: View
-
+    private lateinit var projectsRecycler : RecyclerView
+    private lateinit var adapter : ProjectAdapter
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        root = inflater.inflate(R.layout.fragment_home, container, false)
-        Log.d("TAG", "onCreateView: " + "asdasdasdasdasdasdasdsadsa")
+        root = inflater.inflate(R.layout.fragment_projects, container, false)
+        activity?.let { initRecycler(it) }
+        initialVM()
+        getData()
+
         return root
     }
 
@@ -41,9 +48,18 @@ class ProjectsFragment : Fragment() {
     private fun getData() {
         Log.d("TAG", "getData: ")
         viewModel.getProjectData().observe(this, Observer {
-            Log.d("asdas", "asdasdas")
+            adapter.submitList(it)
 
         })
+    }
+    private fun initRecycler(fragmentActivity: FragmentActivity){
+        projectsRecycler = root.findViewById(R.id.projectRecycler)
+        projectsRecycler.layoutManager = LinearLayoutManager(fragmentActivity)
+        projectsRecycler.setHasFixedSize(true)
+
+        adapter = ProjectAdapter()
+        projectsRecycler.adapter = adapter
+
     }
 
 }

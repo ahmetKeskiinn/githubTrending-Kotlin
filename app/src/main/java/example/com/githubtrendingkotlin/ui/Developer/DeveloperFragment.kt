@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView
 import example.com.githubtrendingkotlin.Adapters.DeveloperAdapter
 import example.com.githubtrendingkotlin.DataBase.Developers.DevelopersRepo
 import example.com.githubtrendingkotlin.R
-import example.com.githubtrendingkotlin.ui.Projects.FactoryProject
 
 class DeveloperFragment : Fragment() {
 
@@ -28,7 +27,7 @@ class DeveloperFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        root = inflater.inflate(R.layout.fragment_dashboard, container, false)
+        root = inflater.inflate(R.layout.fragment_developer, container, false)
         activity?.let {
             initRecycler(it)
         }

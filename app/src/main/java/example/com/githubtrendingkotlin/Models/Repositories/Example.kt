@@ -6,60 +6,47 @@ import com.google.gson.annotations.SerializedName
 class Example {
     @SerializedName("author")
     @Expose
-    private var author: String? = null
+    var author: String? = null
 
     @SerializedName("name")
     @Expose
-    private var name: String? = null
+    var name: String? = null
 
     @SerializedName("avatar")
     @Expose
-    private var avatar: String? = null
+    var avatar: String? = null
 
     @SerializedName("description")
     @Expose
-    private var description: String? = null
+    var description: String? = null
 
     @SerializedName("url")
     @Expose
-    private var url: String? = null
+    var url: String? = null
 
     @SerializedName("language")
     @Expose
-    private var language: String? = null
+    var language: String? = null
 
     @SerializedName("languageColor")
     @Expose
-    private var languageColor: String? = null
+    var languageColor: String? = null
 
     @SerializedName("stars")
     @Expose
-    private var stars: Int? = null
+    var stars: Int? = null
 
     @SerializedName("forks")
     @Expose
-    private var forks: Int? = null
+    var forks: Int? = null
 
     @SerializedName("currentPeriodStars")
     @Expose
-    private var currentPeriodStars: Int? = null
+    var currentPeriodStars: Int? = null
 
     @SerializedName("builtBy")
     @Expose
-    private var builtBy: List<BuiltBy?>? = null
+    var builtBy: List<BuiltBy?>? = null
 
-    fun getData() : List<String>{
-        val data : MutableList<String> = mutableListOf()
-        author?.let { data.add(it) }
-        name?.let { data.add(it) }
-        avatar?.let { data.add(it) }
-        description?.let { data.add(it) }
-        url?.let { data.add(it) }
-        language?.let { data.add(it) }
-        languageColor?.let { data.add(it) }
-        stars?.let { data.add(it.toString()) }
-        forks?.let { data.add(it.toString()) }
-        currentPeriodStars?.let { data.add(it.toString()) }
-        return data
-    }
+
 }
