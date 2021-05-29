@@ -10,19 +10,14 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class RepoRepository {
+class RepoRepository(private val key: String?, private val host : String?, private val language : String?, private val since : String, private val langCode : String?) {
     var endpoints : Api = Api()
     fun getRepositories() : LiveData<Example> {
         Log.d("TAG", "getRepositories: ")
         val apiResponse = MutableLiveData<Example>()
         val apiService = endpoints.getClient()!!.create(GetService::class.java)
-        val call : Call<List<Example?>>? = apiService.getRepositories("966dd09665mshfee82873a81b1f5p1a2d3bjsnb22c69531b3e",
-            "github-trending.p.rapidapi.com",
-            "rust",
-            "daily" ,
-            "en")
+        val call : Call<List<Example?>>? = apiService.getRepositories(key, host, language, since, langCode)
         call?.enqueue(object : Callback<List<Example?>> {
-
             override fun onFailure(call: Call<List<Example?>>, t: Throwable) {
                 Log.d("TAG", "onFailure: " + t)
             }

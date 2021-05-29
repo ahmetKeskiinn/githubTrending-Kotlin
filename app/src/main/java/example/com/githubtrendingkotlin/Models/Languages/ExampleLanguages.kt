@@ -3,7 +3,7 @@ package example.com.githubtrendingkotlin.Models.Languages
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-class Example {
+class ExampleLanguages {
     @SerializedName("urlParam")
     @Expose
     private var urlParam: String? = null
@@ -12,20 +12,11 @@ class Example {
     @Expose
     private var name: String? = null
 
-    fun getUrlParam(): String? {
-        return urlParam
-    }
-
-    fun setUrlParam(urlParam: String?) {
-        this.urlParam = urlParam
-    }
-
-    fun getName(): String? {
-        return name
-    }
-
-    fun setName(name: String?) {
-        this.name = name
+    fun getData() : MutableList<String>{
+        val data : MutableList<String> = mutableListOf()
+        urlParam?.let { data.add(it) }
+        name?.let { data.add(it) }
+        return data
     }
 
 }

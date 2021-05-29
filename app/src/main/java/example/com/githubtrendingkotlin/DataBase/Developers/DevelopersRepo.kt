@@ -1,4 +1,4 @@
-package example.com.githubtrendingkotlin.DataBase.SpokenLanguages
+package example.com.githubtrendingkotlin.DataBase.Developers
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -10,7 +10,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class SpokenLanguagesRepository (private val key: String?, private val host : String?, private val language : String?, private val since : String, private val langCode : String?) {
+class DevelopersRepo(private val key: String?, private val host : String?, private val language : String?, private val since : String, private val langCode : String?) {
     var endpoints : Api = Api()
     fun getDevelopers() : LiveData<Example> {
         Log.d("TAG", "getRepositories: ")

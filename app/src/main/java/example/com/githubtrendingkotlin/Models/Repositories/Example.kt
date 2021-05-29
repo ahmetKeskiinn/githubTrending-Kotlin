@@ -4,8 +4,6 @@ import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
 class Example {
-
-
     @SerializedName("author")
     @Expose
     private var author: String? = null
@@ -55,6 +53,13 @@ class Example {
         author?.let { data.add(it) }
         name?.let { data.add(it) }
         avatar?.let { data.add(it) }
+        description?.let { data.add(it) }
+        url?.let { data.add(it) }
+        language?.let { data.add(it) }
+        languageColor?.let { data.add(it) }
+        stars?.let { data.add(it.toString()) }
+        forks?.let { data.add(it.toString()) }
+        currentPeriodStars?.let { data.add(it.toString()) }
         return data
     }
 }

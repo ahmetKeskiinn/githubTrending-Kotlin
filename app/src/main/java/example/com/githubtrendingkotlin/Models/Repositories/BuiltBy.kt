@@ -17,27 +17,4 @@ class BuiltBy {
     @Expose
     private var avatar: String? = null
 
-    fun getUsername(): String? {
-        return username
-    }
-
-    fun setUsername(username: String?) {
-        this.username = username
-    }
-
-    fun getHref(): String? {
-        return href
-    }
-
-    fun setHref(href: String?) {
-        this.href = href
-    }
-
-    fun getAvatar(): String? {
-        return avatar
-    }
-
-    fun setAvatar(avatar: String?) {
-        this.avatar = avatar
-    }
 }

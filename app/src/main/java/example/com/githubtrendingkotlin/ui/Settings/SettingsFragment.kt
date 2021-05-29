@@ -1,4 +1,4 @@
-package example.com.githubtrendingkotlin.ui.notifications
+package example.com.githubtrendingkotlin.ui.Settings
 
 import android.app.Application
 import android.os.Bundle
@@ -11,11 +11,12 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import example.com.githubtrendingkotlin.DataBase.Repositories.RepoRepository
 import example.com.githubtrendingkotlin.R
+import example.com.githubtrendingkotlin.ui.Projects.FactoryProject
 
-class NotificationsFragment : Fragment() {
+class SettingsFragment : Fragment() {
     // Lazy Inject ViewModel
     // private val viewModel: NotificationsViewModel by viewModel
-    private lateinit var viewModel: NotificationsViewModel
+    private lateinit var viewModel: SettingsViewModel
     private lateinit var root: View
 
     override fun onCreateView(
@@ -25,18 +26,20 @@ class NotificationsFragment : Fragment() {
     ): View? {
         root = inflater.inflate(R.layout.fragment_notifications, container, false)
         initialVM()
-        getData(false)
+        getData()
         return root
     }
     private fun initialVM(){
+        val key = "966dd09665mshfee82873a81b1f5p1a2d3bjsnb22c69531b3e"
+        val host = "github-trending.p.rapidapi.com"
         viewModel = ViewModelProvider(
             this,
-            Factory(Application(), RepoRepository())
-        ).get(NotificationsViewModel::class.java)
+            FactorySettings(Application(), RepoRepository(key, host , "rust" , "daily","en"))
+        ).get(SettingsViewModel::class.java)
     }
-    private fun getData(refresh : Boolean) {
+    private fun getData() {
         Log.d("TAG", "getData: ")
-        viewModel.getQuoteData(refresh).observe(this, Observer {
+        viewModel.getSettingsData().observe(this, Observer {
             Log.d("asdas", "asdasdas")
 
         })
