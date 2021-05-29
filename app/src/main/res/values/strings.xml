@@ -3,4 +3,18 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+
+    <string name="search">Please Enter What Language You Want...</string>
+    <string name="userName">User Name</string>
+    <string name="name">Name Surname</string>
+    <string name="sponsorURL">Sponsor URL</string>
+    <string name="author">Author</string>
+    <string name="description">Description</string>
+    <string name="starts">Stars</string>
+    <string name="forks">Forks</string>
+    <string name="currentPeriodStars">Current Period Stars</string>
+    <string name="language">Language</string>
+    <string name="spokenLanguage">Spoken Language</string>
+
+
 </resources>
