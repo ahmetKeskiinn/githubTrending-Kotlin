@@ -7,8 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import example.com.githubtrendingkotlin.Adapters.DeveloperAdapter
 import example.com.githubtrendingkotlin.DataBase.Developers.DevelopersRepo
 import example.com.githubtrendingkotlin.R
 import example.com.githubtrendingkotlin.ui.Projects.FactoryProject
@@ -17,13 +21,19 @@ class DeveloperFragment : Fragment() {
 
     private lateinit var viewModel: DeveloperViewModel
     private lateinit var root: View
+    private lateinit var recyclerAdapter: DeveloperAdapter
+    private lateinit var developerRecycler: RecyclerView
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         root = inflater.inflate(R.layout.fragment_dashboard, container, false)
-
+        activity?.let {
+            initRecycler(it)
+        }
+        initialVM()
+        getData()
         return root
     }
 
@@ -37,10 +47,22 @@ class DeveloperFragment : Fragment() {
     }
 
     private fun getData() {
-        Log.d("TAG", "getData: ")
+        Log.d("TAG", "getData: ++++")
         viewModel.getDeveloperData().observe(this, Observer {
-            Log.d("asdas", "asdasdas")
+            Log.d("TAG", "getData:-------------- " + it)
+            recyclerAdapter.submitList(it)
 
         })
+        Log.d("TAG", "getData:+-+-+- ")
     }
+    private fun initRecycler(fragmentActivity: FragmentActivity){
+        developerRecycler = root.findViewById(R.id.developersRecycler)
+        developerRecycler.layoutManager = LinearLayoutManager(fragmentActivity)
+        developerRecycler.setHasFixedSize(true)
+
+        recyclerAdapter = DeveloperAdapter()
+        developerRecycler.adapter = recyclerAdapter
+
+    }
+
 }

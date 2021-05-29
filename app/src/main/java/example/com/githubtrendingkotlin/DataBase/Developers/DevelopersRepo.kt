@@ -3,6 +3,7 @@ package example.com.githubtrendingkotlin.DataBase.Developers
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import example.com.githubtrendingkotlin.Models.Developers.ExampleDevelopers
 import example.com.githubtrendingkotlin.Models.Repositories.Example
 import example.com.githubtrendingkotlin.Utils.Api
 import example.com.githubtrendingkotlin.Utils.GetService
@@ -12,23 +13,21 @@ import retrofit2.Response
 
 class DevelopersRepo(private val key: String?, private val host : String?, private val language : String?, private val since : String, private val langCode : String?) {
     var endpoints : Api = Api()
-    fun getDevelopers() : LiveData<Example> {
-        Log.d("TAG", "getRepositories: ")
-        val apiResponse = MutableLiveData<Example>()
+    fun getDevelopers() : MutableLiveData<List<ExampleDevelopers>> {
+        val apiResponse = MutableLiveData<List<ExampleDevelopers>>()
         val apiService = endpoints.getClient()!!.create(GetService::class.java)
-        val call : Call<List<Example?>>? = apiService.getRepositories(key, host, language, since, langCode)
-        call?.enqueue(object : Callback<List<Example?>> {
-            override fun onFailure(call: Call<List<Example?>>, t: Throwable) {
+        val call : Call<List<ExampleDevelopers?>>? = apiService.getDevelopers(key, host, language, since, langCode)
+        call?.enqueue(object : Callback<List<ExampleDevelopers?>> {
+            override fun onFailure(call: Call<List<ExampleDevelopers?>>, t: Throwable) {
                 Log.d("TAG", "onFailure: " + t)
             }
 
             override fun onResponse(
-                call: Call<List<Example?>>,
-                response: Response<List<Example?>>
+                call: Call<List<ExampleDevelopers?>>,
+                response: Response<List<ExampleDevelopers?>>
             ) {
                 if (response!!.isSuccessful) {
-                    Log.d("TAG", "onResponse: " + response.body()?.get(0)?.getData())
-                    // apiResponse.postValue(ApiResponse(response.body()!!))
+                     apiResponse.postValue(response.body()!! as List<ExampleDevelopers>?)
                 } else {
                     Log.d("TAG", "onResponse: Not Success")
                     // apiResponse.postValue(ApiResponse(response.code()))
