@@ -50,92 +50,11 @@ class Example {
     @Expose
     private var builtBy: List<BuiltBy?>? = null
 
-    fun getAuthor(): String? {
-        return author
+    fun getData() : List<String>{
+        val data : MutableList<String> = mutableListOf()
+        author?.let { data.add(it) }
+        name?.let { data.add(it) }
+        avatar?.let { data.add(it) }
+        return data
     }
-
-    fun setAuthor(author: String?) {
-        this.author = author
-    }
-
-    fun getName(): String? {
-        return name
-    }
-
-    fun setName(name: String?) {
-        this.name = name
-    }
-
-    fun getAvatar(): String? {
-        return avatar
-    }
-
-    fun setAvatar(avatar: String?) {
-        this.avatar = avatar
-    }
-
-    fun getDescription(): String? {
-        return description
-    }
-
-    fun setDescription(description: String?) {
-        this.description = description
-    }
-
-    fun getUrl(): String? {
-        return url
-    }
-
-    fun setUrl(url: String?) {
-        this.url = url
-    }
-
-    fun getLanguage(): String? {
-        return language
-    }
-
-    fun setLanguage(language: String?) {
-        this.language = language
-    }
-
-    fun getLanguageColor(): String? {
-        return languageColor
-    }
-
-    fun setLanguageColor(languageColor: String?) {
-        this.languageColor = languageColor
-    }
-
-    fun getStars(): Int? {
-        return stars
-    }
-
-    fun setStars(stars: Int?) {
-        this.stars = stars
-    }
-
-    fun getForks(): Int? {
-        return forks
-    }
-
-    fun setForks(forks: Int?) {
-        this.forks = forks
-    }
-
-    fun getCurrentPeriodStars(): Int? {
-        return currentPeriodStars
-    }
-
-    fun setCurrentPeriodStars(currentPeriodStars: Int?) {
-        this.currentPeriodStars = currentPeriodStars
-    }
-
-    fun getBuiltBy(): List<BuiltBy?>? {
-        return builtBy
-    }
-
-    fun setBuiltBy(builtBy: List<BuiltBy?>?) {
-        this.builtBy = builtBy
-    }
-
 }

@@ -1,8 +1,9 @@
 <resources>
-    <string name="app_name">GithubTrendingKotlin</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="app_name">githubTrending</string>
+    <string name="title_home">Trending Projects</string>
+    <string name="title_dashboard">Trending Developers</string>
+    <string name="title_notifications">Availables</string>
+
 
     <string name="search">Please Enter What Language You Want...</string>
     <string name="userName">User Name</string>
@@ -15,6 +16,6 @@
     <string name="currentPeriodStars">Current Period Stars</string>
     <string name="language">Language</string>
     <string name="spokenLanguage">Spoken Language</string>
-
-
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

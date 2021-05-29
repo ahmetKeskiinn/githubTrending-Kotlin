@@ -13,7 +13,7 @@ import example.com.githubtrendingkotlin.R
 class DashboardFragment : Fragment() {
 
     private lateinit var dashboardViewModel: DashboardViewModel
-
+    private lateinit var root: View
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
@@ -21,11 +21,14 @@ class DashboardFragment : Fragment() {
     ): View? {
         dashboardViewModel =
                 ViewModelProvider(this).get(DashboardViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
-        val textView: TextView = root.findViewById(R.id.text_dashboard)
-        dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
+        root = inflater.inflate(R.layout.fragment_dashboard, container, false)
+
         return root
+    }
+
+    override fun onResume() {
+
+
+        super.onResume()
     }
 }

@@ -29,10 +29,12 @@
 
                 <TextView
                     android:layout_width="wrap_content"
+                    android:textColor="@color/black"
                     android:layout_height="wrap_content"
                     android:text="@string/author" />
                 <TextView
                     android:id="@+id/authorTw"
+                    android:textColor="@color/black"
                     android:layout_marginStart="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -46,11 +48,13 @@
 
                 <TextView
                     android:layout_width="wrap_content"
+                    android:textColor="@color/black"
                     android:layout_height="wrap_content"
                     android:text="@string/userName" />
                 <TextView
                     android:id="@+id/projectUserNameTw"
                     android:layout_marginStart="5dp"
+                    android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     />
@@ -63,10 +67,12 @@
 
                 <TextView
                     android:layout_width="wrap_content"
+                    android:textColor="@color/black"
                     android:layout_height="wrap_content"
                     android:text="@string/language" />
                 <TextView
                     android:id="@+id/languageTw"
+                    android:textColor="@color/black"
                     android:layout_marginStart="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -80,10 +86,12 @@
 
                 <TextView
                     android:layout_width="wrap_content"
+                    android:textColor="@color/black"
                     android:layout_height="wrap_content"
                     android:text="@string/description" />
                 <TextView
                     android:id="@+id/descriptionTw"
+                    android:textColor="@color/black"
                     android:layout_marginStart="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -120,10 +128,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
                     android:text="@string/forks" />
                 <TextView
                     android:id="@+id/forksTw"
                     android:layout_marginStart="5dp"
+                    android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     />
@@ -137,10 +147,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
                     android:text="@string/currentPeriodStars" />
                 <TextView
                     android:id="@+id/currentStarsTw"
                     android:layout_marginStart="5dp"
+                    android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     />

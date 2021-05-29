@@ -29,10 +29,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:text="@string/name" />
             <TextView
                 android:id="@+id/nameSurnameTw"
                 android:layout_marginStart="5dp"
+                android:textColor="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 />
@@ -46,10 +48,12 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:text="@string/userName" />
             <TextView
                 android:id="@+id/userNameTw"
                 android:layout_marginStart="5dp"
+                android:textColor="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 />
@@ -62,10 +66,12 @@
 
             <TextView
                 android:layout_width="wrap_content"
+                android:textColor="@color/black"
                 android:layout_height="wrap_content"
                 android:text="@string/sponsorURL" />
             <TextView
                 android:id="@+id/sponsorURL"
+                android:textColor="@color/black"
                 android:layout_marginStart="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
