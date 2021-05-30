@@ -10,7 +10,7 @@ class ExampleLanguages {
 
     @SerializedName("name")
     @Expose
-    private var name: String? = null
+    var name: String? = null
 
     fun getData() : MutableList<String>{
         val data : MutableList<String> = mutableListOf()

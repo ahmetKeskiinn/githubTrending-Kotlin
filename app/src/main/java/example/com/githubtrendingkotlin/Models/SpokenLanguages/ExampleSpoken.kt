@@ -10,7 +10,7 @@ class ExampleSpoken {
 
     @SerializedName("name")
     @Expose
-    private var name: String? = null
+    var name: String? = null
 
     fun getData(): String? {
         return name

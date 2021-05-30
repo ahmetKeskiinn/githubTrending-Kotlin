@@ -1,10 +1,8 @@
-package example.com.githubtrendingkotlin.DataBase.Developers
+package example.com.githubtrendingkotlin.ui.Developer
 
 import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import example.com.githubtrendingkotlin.Models.Developers.ExampleDevelopers
-import example.com.githubtrendingkotlin.Models.Repositories.Example
 import example.com.githubtrendingkotlin.Utils.Api
 import example.com.githubtrendingkotlin.Utils.GetService
 import retrofit2.Call
@@ -19,7 +17,6 @@ class DevelopersRepo(private val key: String?, private val host : String?, priva
         val call : Call<List<ExampleDevelopers?>>? = apiService.getDevelopers(key, host, language, since, langCode)
         call?.enqueue(object : Callback<List<ExampleDevelopers?>> {
             override fun onFailure(call: Call<List<ExampleDevelopers?>>, t: Throwable) {
-                Log.d("TAG", "onFailure: " + t)
             }
 
             override fun onResponse(
@@ -30,12 +27,10 @@ class DevelopersRepo(private val key: String?, private val host : String?, priva
                      apiResponse.postValue(response.body()!! as List<ExampleDevelopers>?)
                 } else {
                     Log.d("TAG", "onResponse: Not Success")
-                    // apiResponse.postValue(ApiResponse(response.code()))
                 }
             }
 
         })
-        Log.d("TAG", "getRepositories: ")
         return apiResponse
     }
 }

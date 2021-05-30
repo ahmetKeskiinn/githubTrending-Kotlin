@@ -2,7 +2,6 @@ package example.com.githubtrendingkotlin.ui.Developer
 
 import android.app.Application
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,7 +12,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import example.com.githubtrendingkotlin.Adapters.DeveloperAdapter
-import example.com.githubtrendingkotlin.DataBase.Developers.DevelopersRepo
 import example.com.githubtrendingkotlin.R
 
 class DeveloperFragment : Fragment() {
@@ -41,18 +39,15 @@ class DeveloperFragment : Fragment() {
         val host = "github-trending.p.rapidapi.com"
         viewModel = ViewModelProvider(
             this,
-            FactoryDeveloper(Application(), DevelopersRepo(key, host, "rust", "daily", "en"))
+            FactoryDeveloper(Application(), DevelopersRepo(key, host, "", "daily", "en"))
         ).get(DeveloperViewModel::class.java)
     }
 
     private fun getData() {
-        Log.d("TAG", "getData: ++++")
         viewModel.getDeveloperData().observe(this, Observer {
-            Log.d("TAG", "getData:-------------- " + it)
             recyclerAdapter.submitList(it)
 
         })
-        Log.d("TAG", "getData:+-+-+- ")
     }
     private fun initRecycler(fragmentActivity: FragmentActivity){
         developerRecycler = root.findViewById(R.id.developersRecycler)

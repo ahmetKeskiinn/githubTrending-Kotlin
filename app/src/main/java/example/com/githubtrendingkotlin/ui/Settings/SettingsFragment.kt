@@ -2,21 +2,28 @@ package example.com.githubtrendingkotlin.ui.Settings
 
 import android.app.Application
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import example.com.githubtrendingkotlin.DataBase.Repositories.RepoRepository
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import example.com.githubtrendingkotlin.Adapters.LanguageAdapter
+import example.com.githubtrendingkotlin.Adapters.SpokenLanguagesAdapter
 import example.com.githubtrendingkotlin.R
 
 class SettingsFragment : Fragment() {
-    // Lazy Inject ViewModel
-    // private val viewModel: NotificationsViewModel by viewModel
+
     private lateinit var viewModel: SettingsViewModel
     private lateinit var root: View
+
+    private lateinit var spokenRecycler:RecyclerView
+    private lateinit var languageRecycler:RecyclerView
+    private lateinit var spokenAdapter : SpokenLanguagesAdapter
+    private lateinit var languageAdapter : LanguageAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -24,6 +31,7 @@ class SettingsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         root = inflater.inflate(R.layout.fragment_settings, container, false)
+        activity?.let { initRecycler(it) }
         initialVM()
         getData()
         return root
@@ -33,14 +41,32 @@ class SettingsFragment : Fragment() {
         val host = "github-trending.p.rapidapi.com"
         viewModel = ViewModelProvider(
             this,
-            FactorySettings(Application(), RepoRepository(key, host , "rust" , "daily","en"))
+            FactorySettings(Application(), SpokenLanguagesRepository(key, host ), LanguageRepository(key,host))
         ).get(SettingsViewModel::class.java)
     }
     private fun getData() {
-        Log.d("TAG", "getData: ")
-        viewModel.getSettingsData().observe(this, Observer {
-            Log.d("asdas", "asdasdas")
+        viewModel.getLanguagesData().observe(this, Observer {
+            languageAdapter.submitList(it)
 
         })
+        viewModel.getSpokenLanguagesData().observe(this, Observer {
+            spokenAdapter.submitList(it)
+
+        })
+    }
+    private fun initRecycler(fragmentActivity: FragmentActivity){
+        spokenRecycler = root.findViewById(R.id.availableSpokenRecycler)
+        spokenRecycler.layoutManager = LinearLayoutManager(fragmentActivity)
+        spokenRecycler.setHasFixedSize(true)
+        spokenAdapter = SpokenLanguagesAdapter()
+        spokenRecycler.adapter = spokenAdapter
+
+        languageRecycler = root.findViewById(R.id.availableLanguageRecycler)
+        languageRecycler.layoutManager = LinearLayoutManager(fragmentActivity)
+        languageRecycler.setHasFixedSize(true)
+
+        languageAdapter = LanguageAdapter()
+        languageRecycler.adapter = languageAdapter
+
     }
 }

@@ -12,9 +12,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import example.com.githubtrendingkotlin.Adapters.DeveloperAdapter
 import example.com.githubtrendingkotlin.Adapters.ProjectAdapter
-import example.com.githubtrendingkotlin.DataBase.Repositories.RepoRepository
 import example.com.githubtrendingkotlin.R
 
 class ProjectsFragment : Fragment() {
@@ -42,7 +40,7 @@ class ProjectsFragment : Fragment() {
         val host = "github-trending.p.rapidapi.com"
         viewModel = ViewModelProvider(
             this,
-            FactoryProject(Application(), RepoRepository(key, host , "rust" , "daily","en"))
+            FactoryProject(Application(), RepoRepository(key, host , "" , "daily","en"))
         ).get(ProjectsViewModel::class.java)
     }
     private fun getData() {

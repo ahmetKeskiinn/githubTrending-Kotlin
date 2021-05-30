@@ -16,6 +16,8 @@
     <string name="currentPeriodStars">Current Period Stars: </string>
     <string name="language">Language: </string>
     <string name="spokenLanguage">Spoken Language: </string>
+    <string name="languagesTw">Available Language</string>
+    <string name="spokenTw">Available Spoken Language</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
