@@ -9,9 +9,9 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class DevelopersRepo(private val key: String?, private val host : String?, private val language : String?, private val since : String, private val langCode : String?) {
+class DevelopersRepo(private val key: String?, private val host : String?, private val since : String, private val langCode : String?) {
     var endpoints : Api = Api()
-    fun getDevelopers() : MutableLiveData<List<ExampleDevelopers>> {
+    fun getDevelopers(language : String?) : MutableLiveData<List<ExampleDevelopers>> {
         val apiResponse = MutableLiveData<List<ExampleDevelopers>>()
         val apiService = endpoints.getClient()!!.create(GetService::class.java)
         val call : Call<List<ExampleDevelopers?>>? = apiService.getDevelopers(key, host, language, since, langCode)

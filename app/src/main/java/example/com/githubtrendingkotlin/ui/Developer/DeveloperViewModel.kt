@@ -7,8 +7,8 @@ import example.com.githubtrendingkotlin.Models.Developers.ExampleDevelopers
 class DeveloperViewModel(private val mRepo : DevelopersRepo) : ViewModel() {
     private var quote : LiveData<List<ExampleDevelopers>>? = null
 
-    fun getDeveloperData(): LiveData<List<ExampleDevelopers>>{
-        quote = mRepo.getDevelopers()
+    fun getDeveloperData(language:String?): LiveData<List<ExampleDevelopers>>{
+        quote = mRepo.getDevelopers(language)
         return quote as LiveData<List<ExampleDevelopers>>
     }
 }

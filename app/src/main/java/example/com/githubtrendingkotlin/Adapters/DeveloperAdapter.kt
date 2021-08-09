@@ -58,6 +58,7 @@ class DeveloperAdapter : ListAdapter<ExampleDevelopers, DeveloperAdapter.Develop
                 if(adapterPosition != RecyclerView.NO_POSITION)
                     onItemClickListener(getItem(adapterPosition))
             }
+
         }*/
        fun updateWithUrl(url: String, imageViewAvatar : ImageView) {
            Picasso.get().load(url).centerCrop().resize(200,200).into(imageViewAvatar)
